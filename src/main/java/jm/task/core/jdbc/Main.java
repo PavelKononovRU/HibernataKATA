@@ -7,15 +7,20 @@ public class Main {
     public static void main(String[] args) {
         long time = System.currentTimeMillis();
 
-        UserService userService = new UserServiceImpl();
-
+        final UserService userService = new UserServiceImpl();
         userService.createUsersTable();
-        userService.saveUser("Павел", "Павлов", (byte) 20);
-        userService.saveUser("Сергей", "Сергеев", (byte) 25);
-        userService.saveUser("Кирилл", "Киреев", (byte) 31);
-        userService.saveUser("Стас", "Стасов", (byte) 38);
-        userService.removeUserById(1);
-        userService.getAllUsers();
+
+        for (int i =0; i < 10; i++) {
+
+            userService.saveUser("Peter", "Jackson",  (byte) 19);
+            userService.saveUser("John", "Stanson", (byte) 20);
+            userService.saveUser("Jessica", "Wallstane", (byte) 33);
+            userService.saveUser("Julia", "McClein", (byte) 47);
+        }
+
+        userService.removeUserById(3);
+        //userService.getAllUsers();
+
         userService.cleanUsersTable();
         userService.dropUsersTable();
 
