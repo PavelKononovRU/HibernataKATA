@@ -38,11 +38,11 @@ public class Util {
                 if (instance == null)
                     instance = new Util();
             }
-
-            System.out.println("====================================");
-            System.out.println("   Класс \"Util\" инстанцирован.    ");
-            System.out.println("====================================");
         }
+
+        System.out.println("====================================");
+        System.out.println("    Класс \"Util\" инстанцирован.   ");
+        System.out.println("====================================");
         return instance;
     }
 
@@ -77,7 +77,7 @@ public class Util {
 
                 config.put(Environment.SHOW_SQL, "true");
                 config.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
-                config.put(Environment.HBM2DDL_AUTO, "update");
+                config.put(Environment.HBM2DDL_AUTO, "create-drop");
 
                 configuration.setProperties(config);
                 configuration.addAnnotatedClass(User.class);
