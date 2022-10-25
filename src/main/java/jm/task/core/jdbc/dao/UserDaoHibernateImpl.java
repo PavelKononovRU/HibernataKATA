@@ -5,6 +5,7 @@ import jm.task.core.jdbc.util.Util;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import javax.persistence.Query;
 import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
@@ -78,8 +79,8 @@ public class UserDaoHibernateImpl implements UserDao {
         try (Session session = Util.getInstance().getSessionFactory().openSession()) {
             tx = session.beginTransaction();
 
-            User user = session.get(User.class, id);
-            session.delete(user);
+            Query query = session.createQuery("delete User where id = :id");
+            query.executeUpdate();
 
             tx.commit();
         } catch (Exception e) {
