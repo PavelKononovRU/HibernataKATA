@@ -10,14 +10,14 @@ public class Main {
         final UserService userService = new UserServiceImpl();
         userService.createUsersTable();
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 25; i++) {
             userService.saveUser("Peter", "Jackson", (byte) 19);
             userService.saveUser("John", "Stanson", (byte) 20);
             userService.saveUser("Jessica", "Wallstane", (byte) 33);
             userService.saveUser("Julia", "McClein", (byte) 47);
         }
 
-        userService.removeUserById(3);
+        userService.removeUserById(1);
         userService.getAllUsers();
 
         userService.cleanUsersTable();
